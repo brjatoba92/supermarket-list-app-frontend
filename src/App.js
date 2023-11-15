@@ -1,34 +1,36 @@
-//import logo from './logo.svg';
+import {ListCard } from "./components/ListCard"
 import './App.css';
 
+const fakeList = [
+  {
+    id: 0,
+    name: 'RAM1500',
+    color: 'blue',
+    quantity: 36,
+    checked: false,
+  },
+  {
+    id: 1,
+    name: 'Ferrari',
+    color: 'red',
+    quantity: 5,
+    checked: false,
+  },
+  {
+    id: 2,
+    name: 'Corolla',
+    color: 'silver',
+    quantity: 520,
+    checked: false,
+  },
+]
+
 function App() {
-  const user = {
-    name: 'Bruno',
-    lastName: 'Jatobá',
-    image: null,
-  };
-
-  function formatName(data) {
-    return data.name + data.lastName;
-  }
-
   return (
     <div className="App">
-      <header className="App-header">
-        {
-          formatName(user)
-        }
-        
-        
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {fakeList.map((item) => (
+        <ListCard item={item} key={`item_${item.id}`}/>
+      ))} 
     </div>
   );
 }
