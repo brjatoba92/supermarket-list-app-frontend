@@ -1,10 +1,15 @@
 import './index.css';
 
-export const Input = ({ label, placeholder }) => {
+export const Input = ({ label, placeholder, value, onChange }) => {
     return(
        <div className='input-container'>
         <span className='input-label'>{label}</span>
-        <input className='input' placeholder={placeholder}/>
+        <input 
+            onChange={(e) => onChange(e.target.value)}  
+            value={value}
+            className='input' 
+            placeholder={placeholder}
+        />
        </div>
     )
 }
