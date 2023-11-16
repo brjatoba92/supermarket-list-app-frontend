@@ -31,9 +31,17 @@
 .home-screen-subtitle{
     max-width: 320px;
     text-align: center;
+    margin-bottom: 48px;
 }
 
-.home-screen-form-container{
-    width: 452px;
-    height: 56px;
+.home-screen-subtitle-description{
+    max-width: 452px;
+    text-align: left;
+    margin-bottom: 16px;
 }
+
+.home-screen-button-container{
+    width: 452px;
+    margin-top: 24px;
+}
+
