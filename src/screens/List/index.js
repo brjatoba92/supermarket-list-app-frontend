@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { getList } from '../../services/request'
-import { ListRender, Loader } from '../../components' //ListRender já esta importando o ListCard
+import { Button, ListRender, Loader } from '../../components' //ListRender já esta importando o ListCard
 
 import './index.css'
 
@@ -26,12 +26,18 @@ export const ListScreen = () => {
         <div className='list-screen-container'>
             <div className='list-screen-content-container'>
                 <div className='list-screen-header'>
-                    <img 
-                        className='list-screen-header-logo'
-                        src='/images/logo.png' 
-                        alt='supermarket-list-logo'
-                    />
-                    <h1>Lista Supermercado</h1>
+                    <div className='list-screen-title-container'>
+                        <img 
+                            className='list-screen-header-logo'
+                            src='/images/logo.png' 
+                            alt='supermarket-list-logo'
+                        />
+                        <h1 className='list-screen-header-title'>Lista Supermercado</h1>
+                    </div>
+                    <div className='list-screen-header-button-container'>
+                        <Button>Adicionar</Button>
+                    </div>
+                    
                 </div>
                 <div className='list-screen-list-container'>
                     {

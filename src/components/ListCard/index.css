@@ -1,7 +1,12 @@
 .list-card-container{
+    display: flex;
+    flex-direction: row;
     width: 934px;
     height: 58px;
     background-color: #7785DB;
     border-radius: 12px;
     margin-bottom: 24px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 8px 16px;
 }
