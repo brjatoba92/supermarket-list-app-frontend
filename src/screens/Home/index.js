@@ -1,9 +1,22 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import { useNavigate} from 'react-router-dom'; //navigate para outra pagina
 import './index.css';
-import {Button, Input } from '../../components'
+import {Button, Input } from '../../components';
 
 export const HomeScreen = () =>{
-    const [username, setUsername] = useState(""); 
+    const navigate = useNavigate() //declarando o navigate
+    const [username, setUsername] = useState("");
+
+    const onClickContinue = () => { //passar a função para o button
+        //alert("Botão Clickado");
+        if(username.length<4){
+            alert("Username deve ter mais que tres caracteres")
+            return;
+        }
+        localStorage.setItem("@supermarket-list-app:username", username) //app para o username e salvar localmente
+        navigate('/list') //tem que esta declarado no app a Route
+
+    }
     
    
     return(
@@ -20,7 +33,7 @@ export const HomeScreen = () =>{
                     placeholder='usuario23'
                 />
                 <div className='home-screen-button-container'>
-                    <Button>Continuar</Button>
+                    <Button onClick={onClickContinue}>Continuar</Button>
                 </div>
             </div>
         </div>
