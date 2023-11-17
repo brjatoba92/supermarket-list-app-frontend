@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { getList } from '../../services/request'
-import { ListCard } from '../../components'
+import { ListRender, Loader } from '../../components' //ListRender já esta importando o ListCard
 
 import './index.css'
 
@@ -34,9 +34,8 @@ export const ListScreen = () => {
                     <h1>Lista Supermercado</h1>
                 </div>
                 <div className='list-screen-list-container'>
-                    {loading && <h3>Carregando...</h3>}
                     {
-                        !loading && listData?.length > 0 ? listData.map(item => <ListCard key={item._id} item={item}/>) : <h3>Sua lista está vazia. Adicione um novo item, clicando no botão de "Adicionar"</h3>
+                        loading ? <Loader /> : <ListRender list={listData} />
                     }
 
                 </div>
