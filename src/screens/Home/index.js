@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate} from 'react-router-dom'; //navigate para outra pagina
 import './index.css';
 import {Button, Input } from '../../components';
+import {SAVE_USERNAME_PATH} from '../../services/constants'
 
 export const HomeScreen = () =>{
     const navigate = useNavigate() //declarando o navigate
@@ -13,7 +14,7 @@ export const HomeScreen = () =>{
             alert("Username deve ter mais que tres caracteres")
             return;
         }
-        localStorage.setItem("@supermarket-list-app:username", username) //app para o username e salvar localmente
+        localStorage.setItem(SAVE_USERNAME_PATH, username) //app para o username e salvar localmente
         navigate('/list') //tem que esta declarado no app a Route
 
     }
