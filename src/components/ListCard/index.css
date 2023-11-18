@@ -3,8 +3,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    width: 934px;
+    width: 100%;
     height: 58px;
+    min-height: 58px;
     background-color: #d3d8fc;
     border-radius: 12px;
     margin-bottom: 24px;

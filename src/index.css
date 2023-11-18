@@ -48,3 +48,8 @@ h3{
   margin: 0px;
   padding: 0px;
 }
+
+::-webkit-scrollbar{
+  visibility: hidden;
+  width: 0px;
+}
