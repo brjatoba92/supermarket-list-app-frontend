@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react'
 
 import { getList } from '../../services/request'
-import { Button, ListRender, Loader } from '../../components' //ListRender já esta importando o ListCard
+import { Button, ListRender, Loader, Modal } from '../../components' //ListRender já esta importando o ListCard
 
 import './index.css'
 
 export const ListScreen = () => {
+    const [modalVisible, setModalVisible] = useState(false); // inicialmente não vai mostrar o modal, tem que esperar a ação de clicar no botão de adicionar
     const [loading, setLoading] = useState(true); //inicialmente vai nascer como true
     const [listData, setListData] = useState([])
     
     const loadListItems = async () => {
         setLoading(true);
         const result = await getList();
-        console.log({result});
+        //console.log({result});
         setListData(result)
         setLoading(false);
     }
@@ -20,9 +21,14 @@ export const ListScreen = () => {
         loadListItems();
     },[])
 
+    const onClickAddButton = () => {
+        setModalVisible(true) //mudando de false na const ListScreen para true na ação do click do Button 
+    }
+
 
     return(
         //criando a pagina de listagem
+        //colocando a ação de add items do modal no buttom de adicionar novos items 
         <div className='list-screen-container'>
             <div className='list-screen-content-container'>
                 <div className='list-screen-header'>
@@ -35,7 +41,7 @@ export const ListScreen = () => {
                         <h1 className='list-screen-header-title'>Lista Supermercado</h1>
                     </div>
                     <div className='list-screen-header-button-container'>
-                        <Button>Adicionar</Button>
+                        <Button onClick={onClickAddButton}>Adicionar</Button>
                     </div>
                     
                 </div>
@@ -45,7 +51,11 @@ export const ListScreen = () => {
                     }
 
                 </div>
+                
             </div>
+            {
+                modalVisible && <Modal /> //se o modal tiver o estado de visivel 
+            }
         </div>
-    )
-}
+    );
+};
