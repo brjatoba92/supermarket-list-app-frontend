@@ -17,9 +17,9 @@
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    width: 24vw;
+    width: 26vw;
     background-color: white;
-    padding-top: 24px;
+    padding-top: 16px;
     padding-left: 24px;
     padding-right: 24px;
     
@@ -28,10 +28,10 @@
 .modal-header{
     display: flex;
     flex-direction: row;
-    
-    width: 100%;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+    margin-bottom: 24px;
 }
 
 .modal-close-button{
@@ -45,3 +45,9 @@
     border: 0px;
     cursor: pointer;
 }
+
+.modal-spacer{
+    height: 70vh;
+    
+}
+
