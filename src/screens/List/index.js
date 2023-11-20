@@ -22,8 +22,12 @@ export const ListScreen = () => {
     },[])
 
     const onClickAddButton = () => {
-        setModalVisible(true) //mudando de false na const ListScreen para true na ação do click do Button 
+        setModalVisible(true) //mudando de false na const ListScreen para true na ação do click do Button  
     }
+
+    const onCloseModal = () => [ 
+        setModalVisible(false) //quando fechar o modal vai mudar o estado de visibilidade do modal para false
+    ]
 
 
     return(
@@ -54,7 +58,7 @@ export const ListScreen = () => {
                 
             </div>
             {
-                modalVisible && <Modal /> //se o modal tiver o estado de visivel 
+                modalVisible && <Modal onClose={onCloseModal} /> //se o modal tiver o estado de visivel && chamando o onCloseModal
             }
         </div>
     );
