@@ -1,6 +1,6 @@
 import './index.css'
 
-export const Button = ({ children, onClick, variant }) => {
+export const Button = ({ children, onClick, variant, icon }) => {
     return (
         <button 
             onClick={onClick} 
@@ -8,6 +8,14 @@ export const Button = ({ children, onClick, variant }) => {
                 variant === 'outline' ? 'outline' : 'main'
             }`}
         >
+            {
+                icon && (
+                <img 
+                    src={`/images/${icon}.svg`}
+                    className='button-icon' 
+                    alt={`supermarket_icon_${icon}`}
+                />
+            )}
             {children}
         </button>
     )
