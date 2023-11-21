@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import './index.css'
 import { Input } from '../Input'
 import { Button } from  '../Button'
-import {createItem, updateItem } from '../../services/request' 
+import {createItem, updateItem, deleteItem } from '../../services/request'  //ação de deletar - 4
 
 export const Modal = ({ onClose, item }) => { //Screen List
     const [name, setName] = useState('');
@@ -47,6 +47,15 @@ export const Modal = ({ onClose, item }) => { //Screen List
         }
     };
 
+    const callDeleteItem = async () => { //deleteItem - 2
+        const result = await deleteItem(item?._id); //deleteItem - 5
+        if(!result?.error){
+            alert("Item deletado com sucesso"); //mostrar mensagem de sucesso - 7
+            onClose();
+        }
+
+    }
+
     useEffect(()=>{
         if(item?.name && item?.quantity){
             setName(item?.name)
@@ -73,9 +82,14 @@ export const Modal = ({ onClose, item }) => { //Screen List
                     label="Quantity"
                     type="number"
                 />
-                <div className='modal-spacer'/>
-                <Button onClick={item? callUpdateItem : callAddItem}>{item? 'Update' : 'Add'}</Button>
+                <div className='buttons-container'>
+                    {item && <Button onClick={callDeleteItem}>Delete</Button>}
+                    <Button onClick={item? callUpdateItem : callAddItem}>
+                        {item ? "Update" : "Add"}
+                    </Button>
+
+                </div>
             </div>
         </div>
-    )
-}
+    );
+};
