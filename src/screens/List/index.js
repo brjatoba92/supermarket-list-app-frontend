@@ -25,9 +25,11 @@ export const ListScreen = () => {
         setModalVisible(true) //mudando de false na const ListScreen para true na ação do click do Button  
     }
 
-    const onCloseModal = () => [ 
-        setModalVisible(false) //quando fechar o modal vai mudar o estado de visibilidade do modal para false
-    ]
+    const onCloseModal = () => {
+        setModalVisible(false); //quando fechar o modal vai mudar o estado de visibilidade do modal para false
+        loadListItems();
+
+    }
 
 
     return(
