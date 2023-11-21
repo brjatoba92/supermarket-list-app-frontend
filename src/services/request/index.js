@@ -19,7 +19,7 @@ export const createItem = async (item) => {
         });
         return result.data;
     } catch (error) {
-        alert ("Erro ao salvar novo item na API")
+        alert ("Erro ao criar novo item")
         return { error }
     }
 };
@@ -32,7 +32,18 @@ export const updateItem = async (id, item) => {
         });
         return result.data;
     } catch (error) {
-        alert ("Erro ao atualizar a API")
+        alert ("Erro ao salvar novo item")
         return { error }
+    }
+};
+
+//criando ação de deleção - 3
+export const deleteItem = async (id) => {
+    try {
+        const result = await api.delete(`/list-item/${id}`);
+        return result.data;
+    } catch (error) {
+        alert ("Erro ao deletar novo item")
+        return { error };
     }
 };
