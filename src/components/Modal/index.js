@@ -19,7 +19,7 @@ export const Modal = ({ onClose }) => { //Screen List
             return;
         }
 
-        const result = await createItem({ name, quantity });
+        const result = await createItem({ name, quantity: Number(quantity) });
         if(!result?.error){
             alert("Item salvo com sucesso");
             onClose()
