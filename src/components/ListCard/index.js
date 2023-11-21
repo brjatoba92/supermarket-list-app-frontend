@@ -1,7 +1,7 @@
 import "./index.css";
 
 export const ListCard = (props) => {
-    const { item } = props; //desconstrução do objeto via props
+    const { item, onClick } = props; //desconstrução do objeto via props
     
     return (
         <div className="list-card-container">
@@ -11,7 +11,7 @@ export const ListCard = (props) => {
                 alt="checked-item"
             
             />
-            <div className="list-card-text-container">
+            <div className="list-card-text-container" onClick={() => onClick(item)}>
                 <span className="list-card-title">{item?.name}</span>
                 <span className="list-card-subtitle">{item?.quantity} unidades</span>
             </div>

@@ -9,6 +9,7 @@ export const ListScreen = () => {
     const [modalVisible, setModalVisible] = useState(false); // inicialmente não vai mostrar o modal, tem que esperar a ação de clicar no botão de adicionar
     const [loading, setLoading] = useState(true); //inicialmente vai nascer como true
     const [listData, setListData] = useState([])
+    const [selectedItem, setSelectedItem] = useState(null)
     
     const loadListItems = async () => {
         setLoading(true);
@@ -22,13 +23,19 @@ export const ListScreen = () => {
     },[])
 
     const onClickAddButton = () => {
+        setSelectedItem(null);
         setModalVisible(true) //mudando de false na const ListScreen para true na ação do click do Button  
     }
 
     const onCloseModal = () => {
         setModalVisible(false); //quando fechar o modal vai mudar o estado de visibilidade do modal para false
         loadListItems();
+        setSelectedItem(null);
+    }
 
+    const onEditItem = (item) => {
+        setSelectedItem(item)
+        setModalVisible(true)
     }
 
 
@@ -53,14 +60,14 @@ export const ListScreen = () => {
                 </div>
                 <div className='list-screen-list-container'>
                     {
-                        loading ? <Loader /> : <ListRender list={listData} />
+                        loading ? <Loader /> : <ListRender onEdit={onEditItem} list={listData} />
                     }
 
                 </div>
                 
             </div>
             {
-                modalVisible && <Modal onClose={onCloseModal} /> //se o modal tiver o estado de visivel && chamando o onCloseModal
+                modalVisible && <Modal item={selectedItem} onClose={onCloseModal} /> //se o modal tiver o estado de visivel && chamando o onCloseModal
             }
         </div>
     );
