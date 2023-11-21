@@ -23,3 +23,16 @@ export const createItem = async (item) => {
         return { error }
     }
 };
+
+//criando um item
+export const updateItem = async (id, item) => {
+    try {
+        const result = await api.put(`/list-item/${id}`, {
+            ...item, //desestruturar o objeto item
+        });
+        return result.data;
+    } catch (error) {
+        alert ("Erro ao atualizar a API")
+        return { error }
+    }
+};
