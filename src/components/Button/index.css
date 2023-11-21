@@ -4,9 +4,21 @@
     font-size: 14px;
     color: #fff;
     font-weight: bold;
-    font-family: "Avenir";
+    font-family: "Avenir Next";
     border-radius: 24px;
     height: 42px;
-    border: 0px;
     cursor: pointer;
+    border: 1px solid #7785DB;
+}
+
+.main{
+    background-color: #7785DB;
+    color: white;
+
+}
+
+.outline{
+    color: #7785DB;
+    background-color: #F2F4FF;
+
 }

@@ -83,7 +83,7 @@ export const Modal = ({ onClose, item }) => { //Screen List
                     type="number"
                 />
                 <div className='buttons-container'>
-                    {item && <Button onClick={callDeleteItem}>Delete</Button>}
+                    {item && <Button variant="outline" onClick={callDeleteItem}>Delete</Button>}
                     <Button onClick={item? callUpdateItem : callAddItem}>
                         {item ? "Update" : "Add"}
                     </Button>
