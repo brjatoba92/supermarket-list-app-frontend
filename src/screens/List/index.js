@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { getList } from '../../services/request'
+import { getList, updateItem } from '../../services/request'
 import { Button, ListRender, Loader, Modal } from '../../components' //ListRender já esta importando o ListCard
 
 import './index.css'
@@ -38,6 +38,18 @@ export const ListScreen = () => {
         setModalVisible(true)
     }
 
+    const onCheckItem = async (item) => {
+        const result = await updateItem(item._id, {
+            name: item.name,
+            quantity: Number(item.quantity),
+            checked: !item.checked,
+        });
+        
+        if(!result.error){
+            await loadListItems();
+        }
+    };
+
 
     return(
         //criando a pagina de listagem
@@ -60,9 +72,11 @@ export const ListScreen = () => {
                 </div>
                 <div className='list-screen-list-container'>
                     {
-                        loading ? <Loader /> : <ListRender onEdit={onEditItem} list={listData} />
-                    }
-
+                        loading ? ( 
+                            <Loader />
+                        ) : (
+                            <ListRender onCheckItem={onCheckItem} onEdit={onEditItem} list={listData} />
+                        )}
                 </div>
                 
             </div>
