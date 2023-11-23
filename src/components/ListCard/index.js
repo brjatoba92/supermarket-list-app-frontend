@@ -7,13 +7,11 @@ export const ListCard = (props) => {
     return (
         <div className="list-card-container">
            <div className="checkbox">
-                <input
-                    onChange={() => onCheckItem(item)}
-                    checked={item?.checked}
-                    id="checkbox"
-                    type="checkbox"
+                <img 
+                    onClick={() => onCheckItem(item)}
+                    src={`/images/${item?.checked ? "checked.svg" : "unchecked.svg"}`}
+                    alt="checked"
                 />
-                <label htmlFor="checkbox"/>
            </div>
             <div className="list-card-text-container">
                 <span className="list-card-title">{item?.name}</span>
