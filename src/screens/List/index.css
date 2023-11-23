@@ -62,6 +62,13 @@
     justify-content: center;
 }
 
+@media screen and (max-width: 830px){
+    .list-screen-header-title{
+        font-size: 24px;
+        
+    } 
+}
+
 @media screen and (max-width: 420px){
     .list-screen-header-title{
         font-size: 14px;
@@ -69,7 +76,7 @@
     }
     .list-screen-header-logo{
         width: 34px;
-        height: 34px;
+        height: auto;
     }
     .list-screen-content-container{
         width: 72vw;
@@ -80,6 +87,3 @@
     }
 }
 
-@media screen and (max-width: 830px){
-    
-}
