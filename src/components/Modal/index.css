@@ -54,3 +54,14 @@
     justify-content: space-between;
     margin-top: 64vh;
 }
+
+@media screen and (max-width: 420px){
+    .modal-content{
+        width: 100vw;
+    }
+    .buttons-container{
+        margin-top: 42vh;
+        height: 18vh;
+        align-items: center;
+    }
+}
