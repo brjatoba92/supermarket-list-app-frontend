@@ -3,12 +3,13 @@ import "./index.css";
 
 export const ListCard = (props) => {
     const { item, onClick, onCheckItem } = props; //desconstrução do objeto via props
+    
     return (
         <div className="list-card-container">
            <div className="checkbox">
                 <input
-                    onChange={()=>onCheckItem(item)}
-                    checked={item.checked}
+                    onChange={() => onCheckItem(item)}
+                    checked={item?.checked}
                     id="checkbox"
                     type="checkbox"
                 />
