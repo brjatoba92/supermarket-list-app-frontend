@@ -61,3 +61,25 @@
     align-items: center;
     justify-content: center;
 }
+
+@media screen and (max-width: 420px){
+    .list-screen-header-title{
+        font-size: 14px;
+        line-height: 12px;
+    }
+    .list-screen-header-logo{
+        width: 34px;
+        height: 34px;
+    }
+    .list-screen-content-container{
+        width: 72vw;
+    }
+
+    .list-screen-header-button-container{
+        width: 42px;
+    }
+}
+
+@media screen and (max-width: 830px){
+    
+}

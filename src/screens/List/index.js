@@ -66,7 +66,11 @@ export const ListScreen = () => {
                         <h1 className='list-screen-header-title'>Lista Supermercado</h1>
                     </div>
                     <div className='list-screen-header-button-container'>
-                        <Button onClick={onClickAddButton}>Adicionar</Button>
+                        <Button onClick={onClickAddButton}>
+                            {
+                               window.innerWidth <= 420 ? <img src='images/list.svg' alt='list-menu'/> : 'Adicionar' //condicional para o botão
+                            }
+                        </Button>
                     </div>
                     
                 </div>
