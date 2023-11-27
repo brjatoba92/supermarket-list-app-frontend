@@ -1,22 +1,20 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom' //navigate para outra pagina
+import { useNavigate } from 'react-router-dom'
 import './index.css'
-import { Button, Input } from '../../components'
-import { SAVE_USERNAME_PATH } from '../../services/constants'
+import { Button, Input } from 'components'
+import { SAVE_USERNAME_PATH } from 'services/constants'
 
 export const HomeScreen = () => {
-  const navigate = useNavigate() //declarando o navigate
+  const navigate = useNavigate()
   const [username, setUsername] = useState('')
 
   const onClickContinue = () => {
-    //passar a função para o button
-    //alert("Botão Clickado");
     if (username.length < 4) {
       alert('Username deve ter mais que tres caracteres')
       return
     }
-    localStorage.setItem(SAVE_USERNAME_PATH, username) //app para o username e salvar localmente
-    navigate('/list') //tem que esta declarado no app a Route
+    localStorage.setItem(SAVE_USERNAME_PATH, username)
+    navigate('/list')
   }
 
   return (
@@ -38,8 +36,8 @@ export const HomeScreen = () => {
           Digite abaixo seu usuário para ter acesso a sua lista de compras:
         </h3>
         <Input
-          onChange={(text) => setUsername(text)} //toda vez que mudar faz o text
-          value={username} //valor do input que esta sendo salvo no useState para sempre manter no input
+          onChange={(text) => setUsername(text)}
+          value={username}
           label="Username"
           placeholder="usuario23"
         />

@@ -1,8 +1,8 @@
 import './App.css'
-import { HomeScreen, ListScreen } from './screens'
+import { HomeScreen, ListScreen } from 'screens'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-function App() {
+function App () {
   return (
     <Router>
       <Routes>

@@ -1,6 +1,5 @@
-import { api } from '../api'
+import { api } from 'services/api'
 
-//obtendo valores presentes na API
 export const getList = async () => {
   try {
     const result = await api.get('/list-items')
@@ -10,12 +9,10 @@ export const getList = async () => {
     return { error }
   }
 }
-
-//criando um item
 export const createItem = async (item) => {
   try {
     const result = await api.post('/list-item', {
-      ...item //desestruturar o objeto item
+      ...item
     })
     return result.data
   } catch (error) {
@@ -24,11 +21,10 @@ export const createItem = async (item) => {
   }
 }
 
-//criando um item
 export const updateItem = async (id, item) => {
   try {
     const result = await api.put(`/list-item/${id}`, {
-      ...item //desestruturar o objeto item
+      ...item
     })
     return result.data
   } catch (error) {
@@ -37,7 +33,6 @@ export const updateItem = async (id, item) => {
   }
 }
 
-//criando ação de deleção - 3
 export const deleteItem = async (id) => {
   try {
     const result = await api.delete(`/list-item/${id}`)

@@ -1,7 +1,7 @@
 import './index.css'
 
 export const ListCard = (props) => {
-  const { item, onClick, onCheckItem } = props //desconstrução do objeto via props
+  const { item, onClick, onCheckItem } = props
 
   return (
     <div className="list-card-container">
