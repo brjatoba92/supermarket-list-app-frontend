@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { SAVE_USERNAME_PATH } from '../constants'
+import { SAVE_USERNAME_PATH } from 'services/constants'
 
 export const api = axios.create({
   baseURL: 'https://supermarketlist-api.herokuapp.com/',

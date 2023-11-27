@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react'
 import './index.css'
-import { Input } from '../Input'
-import { Button } from '../Button'
-import { createItem, updateItem, deleteItem } from '../../services/request' //ação de deletar - 4
+import { Input } from 'components/Input'
+import { Button } from 'components/Button'
+import { createItem, updateItem, deleteItem } from 'services/request'
 
 export const Modal = ({ onClose, item }) => {
-  //Screen List
   const [name, setName] = useState('')
   const [quantity, setQuantity] = useState(1)
 
   const validateBeforeSave = () => {
-    //função geral para add ou update datas
     if (name.length < 3) {
       alert('Nome tem que ter mais que 3 caracteres')
       return false
@@ -24,7 +22,6 @@ export const Modal = ({ onClose, item }) => {
   }
 
   const callAddItem = async () => {
-    //validando dados
     const validate = validateBeforeSave()
     if (validate) {
       const result = await createItem({ name, quantity: Number(quantity) })
@@ -36,7 +33,6 @@ export const Modal = ({ onClose, item }) => {
   }
 
   const callUpdateItem = async () => {
-    //atualizando dados
     const validate = validateBeforeSave()
     if (validate) {
       const result = await updateItem(item?._id, {
@@ -52,10 +48,9 @@ export const Modal = ({ onClose, item }) => {
   }
 
   const callDeleteItem = async () => {
-    //deleteItem - 2
-    const result = await deleteItem(item?._id) //deleteItem - 5
+    const result = await deleteItem(item?._id)
     if (!result?.error) {
-      alert('Item deletado com sucesso') //mostrar mensagem de sucesso - 7
+      alert('Item deletado com sucesso')
       onClose()
     }
   }
@@ -75,14 +70,14 @@ export const Modal = ({ onClose, item }) => {
           <button onClick={onClose} className="modal-close-button" />
         </div>
         <Input
-          onChange={(text) => setName(text)} //toda vez que mudar faz o text
-          value={name} //valor do input que esta sendo salvo no useState para sempre manter no input
+          onChange={(text) => setName(text)}
+          value={name}
           label="Name"
           placeholder="Ex: Açai"
         />
         <Input
-          onChange={(text) => setQuantity(text)} //toda vez que mudar faz o text
-          value={quantity} //valor do input que esta sendo salvo no useState para sempre manter no input
+          onChange={(text) => setQuantity(text)}
+          value={quantity}
           label="Quantity"
           type="number"
         />

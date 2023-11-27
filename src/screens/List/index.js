@@ -1,20 +1,18 @@
 import { useEffect, useState } from 'react'
-
-import { getList, updateItem } from '../../services/request'
-import { Button, ListRender, Loader, Modal } from '../../components' //ListRender já esta importando o ListCard
+import { getList, updateItem } from 'services/request'
+import { Button, ListRender, Loader, Modal } from 'components'
 
 import './index.css'
 
 export const ListScreen = () => {
-  const [modalVisible, setModalVisible] = useState(false) // inicialmente não vai mostrar o modal, tem que esperar a ação de clicar no botão de adicionar
-  const [loading, setLoading] = useState(true) //inicialmente vai nascer como true
+  const [modalVisible, setModalVisible] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [listData, setListData] = useState([])
   const [selectedItem, setSelectedItem] = useState(null)
 
   const loadListItems = async () => {
     setLoading(true)
     const result = await getList()
-    //console.log({result});
     setListData(result)
     setLoading(false)
   }
@@ -24,11 +22,11 @@ export const ListScreen = () => {
 
   const onClickAddButton = () => {
     setSelectedItem(null)
-    setModalVisible(true) //mudando de false na const ListScreen para true na ação do click do Button
+    setModalVisible(true)
   }
 
   const onCloseModal = () => {
-    setModalVisible(false) //quando fechar o modal vai mudar o estado de visibilidade do modal para false
+    setModalVisible(false)
     loadListItems()
     setSelectedItem(null)
   }
@@ -51,8 +49,6 @@ export const ListScreen = () => {
   }
 
   return (
-    //criando a pagina de listagem
-    //colocando a ação de add items do modal no buttom de adicionar novos items
     <div className="list-screen-container">
       <div className="list-screen-content-container">
         <div className="list-screen-header">
@@ -67,29 +63,17 @@ export const ListScreen = () => {
           <div className="list-screen-header-button-container">
             <Button onClick={onClickAddButton}>
               {
-                window.innerWidth <= 420 ? (
-                  <img src="images/list.svg" alt="list-menu" />
-                ) : (
-                  'Adicionar'
-                ) //condicional para o botão
+                window.innerWidth <= 420 ? (<img src="images/list.svg" alt="list-menu" />) : ('Adicionar')
               }
             </Button>
           </div>
         </div>
         <div className="list-screen-list-container">
-          {loading ? (
-            <Loader />
-          ) : (
-            <ListRender
-              onCheckItem={onCheckItem}
-              onEdit={onEditItem}
-              list={listData}
-            />
-          )}
+          {loading ? (<Loader />) : (<ListRender onCheckItem={onCheckItem} onEdit={onEditItem} list={listData}/>)}
         </div>
       </div>
       {
-        modalVisible && <Modal item={selectedItem} onClose={onCloseModal} /> //se o modal tiver o estado de visivel && chamando o onCloseModal
+        modalVisible && <Modal item={selectedItem} onClose={onCloseModal} />
       }
     </div>
   )
