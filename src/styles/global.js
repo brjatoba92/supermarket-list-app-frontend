@@ -38,26 +38,4 @@ export const GlobalStyle = createGlobalStyle`
         visibility: hidden;
         width: 0px;
     }
-
-    h1{
-        font-weight: bold;
-        font-size: 24px;
-        color: black;
-        line-height: 22px;
-    }
-
-    h3{
-        font-size: 16px;
-        font-weight: 500;
-        margin: 0px;
-        padding: 0px;
-    }
-    @media (max-width: 420px){
-        h1{
-            font-size: 18px ;
-        }
-        h3{
-            font-size: 12px;
-        }
-    }
 `
