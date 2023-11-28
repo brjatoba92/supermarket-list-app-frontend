@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './index.css'
-import { Input, Button, Title } from 'components'
+import { Button, Title, Input } from 'components'
 import { createItem, updateItem, deleteItem } from 'services/request'
 
 export const Modal = ({ onClose, item }) => {
