@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getList, updateItem } from 'services/request'
-import { Button, ListRender, Loader, Modal } from 'components'
+import { Button, ListRender, Loader, Modal, Title } from 'components'
 
 import './index.css'
 
@@ -58,7 +58,9 @@ export const ListScreen = () => {
               src="/images/logo.png"
               alt="supermarket-list-logo"
             />
-            <h1 className="list-screen-header-title">Lista Supermercado</h1>
+            <Title fontSize={32} ml={12} lineHeight={32}>
+              Lista Supermercado
+            </Title>
           </div>
           <div className="list-screen-header-button-container">
             <Button onClick={onClickAddButton}>
