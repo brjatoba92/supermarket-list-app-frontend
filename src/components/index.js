@@ -1,5 +1,5 @@
-export * from './Input'
-export * from './ListCard'
+export * from './molecules/Input'
+export * from './molecules/ListCard'
 export * from './ListRender'
 export * from './Modal'
 export * from './atoms'
