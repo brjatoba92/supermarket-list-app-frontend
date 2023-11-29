@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { getList, updateItem } from 'services/request'
-import { Button, ListRender, Loader, Modal, Title } from 'components'
+// import { Button, ListRender, Loader, Modal, Title } from 'components'
+import { Modal, ListRender } from 'components/organisms'
+import { Title, Loader, Button } from 'components/atoms'
 
 import './index.css'
 

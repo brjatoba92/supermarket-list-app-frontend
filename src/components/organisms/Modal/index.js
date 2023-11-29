@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import './index.css'
-import { Button, Title, Input } from 'components'
+import { Input } from 'components/molecules'
+import { Button, Title } from 'components/atoms'
 import { createItem, updateItem, deleteItem } from 'services/request'
+import { ModalBackgroundContainer, ModalContentContainer, ModalHeader, ModalCloseButton, ButtonContainer } from './styles'
 
 export const Modal = ({ onClose, item }) => {
   const [name, setName] = useState('')
@@ -62,12 +63,12 @@ export const Modal = ({ onClose, item }) => {
   }, [item])
 
   return (
-    <div className="modal">
-      <div className="modal-content">
-        <div className="modal-header">
+    <ModalBackgroundContainer>
+      <ModalContentContainer>
+        <ModalHeader>
           <Title>{item ? 'Item Edit' : 'Add new items'}</Title>
-          <button onClick={onClose} className="modal-close-button" />
-        </div>
+          <ModalCloseButton onClick={onClose} />
+        </ModalHeader>
         <Input
           onChange={(text) => setName(text)}
           value={name}
@@ -80,7 +81,7 @@ export const Modal = ({ onClose, item }) => {
           label="Quantity"
           type="number"
         />
-        <div className="buttons-container">
+        <ButtonContainer>
           {item && (
             <Button icon="trash" variant="outline" onClick={callDeleteItem}>
               Delete
@@ -89,8 +90,8 @@ export const Modal = ({ onClose, item }) => {
           <Button onClick={item ? callUpdateItem : callAddItem}>
             {item ? 'Update' : 'Add'}
           </Button>
-        </div>
-      </div>
-    </div>
+        </ButtonContainer>
+      </ModalContentContainer>
+    </ModalBackgroundContainer>
   )
 }
