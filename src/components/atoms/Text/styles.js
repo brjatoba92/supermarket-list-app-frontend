@@ -9,9 +9,12 @@ export const Title = styled.h1`
   color: black;
   margin-left: ${({ ml }) => ml || 0}px;
 
+ 
   @media (max-width: 420px){
     max-width: 300px;
-    font-size: 18px ;
+    font-size: 15px ;
+    text-align: ${({ align }) => align || 'left'};
+
   }
 `
 
