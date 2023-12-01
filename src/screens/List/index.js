@@ -3,8 +3,8 @@ import { getList, updateItem } from 'services/request'
 // import { Button, ListRender, Loader, Modal, Title } from 'components'
 import { Modal, ListRender } from 'components/organisms'
 import { Title, Loader, Button } from 'components/atoms'
-
-import './index.css'
+import { ScreenContainer, ContentContainer, HeaderContainer, TitleContainer, LogoImage, HeaderButtonContainer, ListContainer } from './styles'
+// import './index.css'
 
 export const ListScreen = () => {
   const [modalVisible, setModalVisible] = useState(false)
@@ -51,34 +51,33 @@ export const ListScreen = () => {
   }
 
   return (
-    <div className="list-screen-container">
-      <div className="list-screen-content-container">
-        <div className="list-screen-header">
-          <div className="list-screen-title-container">
-            <img
-              className="list-screen-header-logo"
+    <ScreenContainer>
+      <ContentContainer>
+        <HeaderContainer>
+          <TitleContainer>
+            <LogoImage
               src="/images/logo.png"
               alt="supermarket-list-logo"
             />
             <Title fontSize={32} ml={12} lineHeight={32}>
               Lista Supermercado
             </Title>
-          </div>
-          <div className="list-screen-header-button-container">
+          </TitleContainer>
+          <HeaderButtonContainer>
             <Button onClick={onClickAddButton}>
               {
                 window.innerWidth <= 420 ? (<img src="images/list.svg" alt="list-menu" />) : ('Adicionar')
               }
             </Button>
-          </div>
-        </div>
-        <div className="list-screen-list-container">
+          </HeaderButtonContainer>
+        </HeaderContainer>
+        <ListContainer>
           {loading ? (<Loader />) : (<ListRender onCheckItem={onCheckItem} onEdit={onEditItem} list={listData}/>)}
-        </div>
-      </div>
+        </ListContainer>
+      </ContentContainer>
       {
         modalVisible && <Modal item={selectedItem} onClose={onCloseModal} />
       }
-    </div>
+    </ScreenContainer>
   )
 }
