@@ -27,8 +27,6 @@ https://supermarket-list-app-frontend.vercel.app/
 ## Requirements to Run
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 
-
-
 ## Running Instructions
 
 1. Clone the project
@@ -52,4 +50,3 @@ yard start
 npm build
 yarn build
 ```
- 
